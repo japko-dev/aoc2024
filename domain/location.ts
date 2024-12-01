@@ -33,4 +33,15 @@ export class Location {
     return distance;
   }
 
+
+  public calculate2(): number {
+    let similarity = 0
+    this.leftLocations.forEach((leftLocation, index) => {
+      const count = this.rightLocations.filter(rightLocation => rightLocation === leftLocation).length
+      similarity += leftLocation * count
+    })
+
+    return similarity;
+  }
+
 }
